@@ -1,0 +1,37 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+
+int main()
+{
+    char str[1000];
+    int a;
+    printf("Enter the string\n");
+    scanf("%s",str);
+    a=IsOnlyDigit(str);
+    if(a==0)
+    {
+        printf("The string contains atleast one alphabet or mathematical symbol\n");
+    }
+    if(a==1)
+    {
+        printf("The string contains all digits");
+    }
+    return;
+}
+
+int IsOnlyDigit(char *str)
+{
+    int i=0;
+    while(str[i])
+    {
+        if(str[i]=='0'||str[i]=='1'||str[i]=='2'||str[i]=='3'||str[i]=='4'||str[i]=='5'||str[i]=='6'||str[i]=='7'||str[i]=='8'||str[i]=='9'||str[i]=='\0')
+        {
+            i++;
+            continue;
+        }
+        return 0;
+    }
+    return 1;
+}
+
