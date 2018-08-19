@@ -17,16 +17,21 @@ void firstunique(char *str)
     while(str[i])
     {
         temp=str[i];
-        j=i+1;
+        j=0;
         while(str[j])
         {
-            if(temp!=str[j])
+            if(j!=i)
             {
-                j++;
-                continue;
+                if(str[j]!=temp)
+                {
+                    j++;
+                    continue;
+                }
+                else
+                    break;
             }
             else
-                break;
+                j++;
 
         }
         if(j==strlen(str))
