@@ -1,0 +1,51 @@
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+int main()
+{
+    int n, i, ele;
+    printf("Enter the size of the array\n");
+    scanf("%d",&n);
+    int a[n];
+    printf("Enter the elements\n");
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&ele);
+        a[i]=ele;
+    }
+    findremduplicates(a, n);
+    return 0;
+}
+
+void findremduplicates(int a[], int size)
+{
+    int i, j, k, b[20], count=0;
+    for(i=0;i<size;i++)
+    {
+        for(j=i+1;j<size;j++)
+        {
+            if(a[j]==a[i])
+            {
+                b[count]=a[j];
+                count++;
+                for(k=j;k<size;k++)
+                {
+                    a[k]=a[k+1];
+                }
+                size--;
+            }
+        }
+    }
+    printf("The duplicates elements are: ");
+    k=0;
+    while(k<count)
+    {
+        printf("%d",b[k]);
+        k++;
+    }
+    printf("\nThe array after removing duplicates is: ");
+    for(k=0;k<size;k++)
+    {
+        printf("%d",a[k]);
+    }
+}
