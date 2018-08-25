@@ -1,0 +1,39 @@
+#include<string.h>
+
+int main()
+{
+    char str[20];
+    printf("Enter the string.\n");
+    scanf("%s",str);
+    int l=0, r;
+    r=strlen(str)-1;
+    printf("All possible permutations of the given string are:\n");
+    permute(str, l, r);
+    return;
+}
+
+void permute(char *str, int l, int r)
+{
+    int j;
+    if(l==r)
+        printf("%s\n", str);
+    else
+    {
+        for(j=l;j<=r;j++)
+        {
+            swap((str+l), (str+j));
+            permute(str, l+1, r);
+            swap((str+l), (str+j));
+        }
+    }
+    return;
+}
+
+void swap(char *x, char *y)
+{
+    char temp;
+    temp=*x;
+    *x=*y;
+    *y=temp;
+    return;
+}
