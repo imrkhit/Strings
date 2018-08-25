@@ -1,0 +1,43 @@
+#include<string.h>
+
+int main()
+{
+    char str[20];
+    printf("Enter the string\n");
+    scanf("%s",str);
+    checkpar(str);
+    return;
+}
+
+void checkpar(char *str)
+{
+    int i=0, j=0;
+    while(str[i])
+    {
+        switch(str[i])
+        {
+            case '(': ++j;
+                      break;
+            case ')': ++j;
+                      break;
+            case '{': ++j;
+                      break;
+            case '}': ++j;
+                      break;
+            case '[': ++j;
+                      break;
+            case ']': ++j;
+                      break;
+        }
+        i++;
+    }
+    if(j==0)
+    {
+        printf("Balanced");
+    }
+    else
+    {
+        printf("Not balanced");
+    }
+    return;
+}
