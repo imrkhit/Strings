@@ -1,0 +1,42 @@
+#include<string.h>
+
+int main()
+{
+    int n, i, ele, k;
+    printf("Enter the size of the array\n");
+    scanf("%d",&n);
+    int a[n];
+    printf("Enter the elements\n");
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&ele);
+        a[i]=ele;
+    }
+    printf("Which largest element you want?\n");
+    scanf("%d",&k);
+    if(k>n)
+        printf("Invalid choice\n");
+    else
+        kthlarg(a, n, k);
+    return;
+}
+
+void kthlarg(int *a, int size, int k)
+{
+    int i, j, res, temp;
+    for(i=0;i<size;i++)
+    {
+        for(j=i+1;j<size;j++)
+        {
+            if(a[i]>a[j])
+            {
+                temp=a[i];
+                a[i]=a[j];
+                a[j]=temp;
+            }
+        }
+    }
+    res=a[size-k];
+    printf("The %dth largest number is %d.", k, res);
+    return;
+}
