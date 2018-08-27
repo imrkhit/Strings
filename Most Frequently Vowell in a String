@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    char str[100];
+    scanf("%s", str);
+    int i=0, ac=0, ec=0, ic=0, oc=0, uc=0;
+    while(str[i])
+    {
+        if(str[i]=='a')
+        {
+            ac++;
+            i++;
+            continue;
+        }
+        else if(str[i]=='e')
+        {
+            ec++;
+            i++;
+            continue;
+        }
+        else if(str[i]=='i')
+        {
+            ic++;
+            i++;
+            continue;
+        }
+        else if(str[i]=='o')
+        {
+            oc++;
+            i++;
+            continue;
+        }
+        else if(str[i]=='u')
+        {
+            uc++;
+            i++;
+            continue;
+        }
+        else
+            i++;
+    }
+    if((ac>ec)&&(ac>ic)&&(ac>oc)&&(ac>uc))
+        printf("a");
+    else if((ec>ac)&&(ec>ic)&&(ec>oc)&&(ec>uc))
+        printf("e");
+    else if((ic>ac)&&(ic>ec)&&(ic>oc)&&(ic>uc))
+        printf("i");
+    else if((oc>ac)&&(oc>ec)&&(oc>ic)&&(oc>uc))
+        printf("o");
+    else
+        printf("u");
+    return;
+}
