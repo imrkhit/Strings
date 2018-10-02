@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main()
+{
+    char str[100];
+    int len;
+    printf("Enter the string\n");
+    scanf("%s",str);
+    len=strlen(str);
+    if(len%2==0)
+        swap(str, len);
+    else
+        printf("The length of the string is not even\n");
+    return;
+}
+
+void swap(char *str, int len)
+{
+    int i, temp;
+    for(i=0;i<len;i+=2)
+    {
+        temp=str[i];
+        str[i]=str[i+1];
+        str[i+1]=temp;
+    }
+    printf("%s", str);
+}
