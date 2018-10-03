@@ -1,0 +1,42 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+#define ASCII 256
+
+int main()
+{
+    char str[100];
+    printf("Enter the string\n");
+    scanf("%s", str);
+    char res;
+    getmax(str);
+    return;
+}
+
+void getmax(char* str)
+{
+    int len, i;
+    int count[ASCII]={0};
+    len=strlen(str);
+    for(i=0;i<len;i++)
+    {
+        count[str[i]]++;
+    }
+    for(i=0;i<len;i++)
+    {
+        printf("%c\t",str[i]);
+        printf("%d\n",count[str[i]]);
+    }
+    int max=-1;
+    char result;
+    for(i=0;i<len;i++)
+    {
+        if(max<count[str[i]])
+        {
+            max=count[str[i]];
+            result=str[i];
+        }
+    }
+    printf("The most occuring character in the string is: %c", result);
+    return;
+}
