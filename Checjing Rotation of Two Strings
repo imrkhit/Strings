@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+
+int main()
+{
+    char str1[100], str2[100];
+    scanf("%s%s", str1, str2);
+    isrotation(str1, str2);
+    return;
+}
+
+void isrotation(char* str1, char* str2)
+{
+    int len1=strlen(str1);
+    int len2=strlen(str2);
+    if(len1!=len2)
+    {
+         printf("The second string is not rotation of first\n");
+         return;
+    }
+    int len3=2*len1;
+    char temp[len3];
+    strcat(temp, str1);
+    strcat(temp, str1);
+    void* p=strstr(temp, str2);
+    if(p!=NULL)
+    {
+        printf("The second string is rotation of first\n");
+        return;
+    }
+    else
+    {
+        printf("The second string is not rotation of first\n");
+        return;
+    }
+    return;
+}
